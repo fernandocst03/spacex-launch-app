@@ -1,0 +1,20 @@
+---
+import CardLaunch from "./CardLaunch.astro";
+import { getLatestLanunches } from "../services/spacex";
+
+const launches = await getLatestLanunches();
+---
+
+<div class="items-center justify-center px-16 w-full gap-3 flex flex-wrap">
+	{
+		launches.map(({ id, links, success, details, flight_number }) => (
+			<CardLaunch
+				id={id}
+				img={links.patch.small}
+				success={success}
+				details={details}
+				flightNumber={flight_number}
+			/>
+		))
+	}
+</div>

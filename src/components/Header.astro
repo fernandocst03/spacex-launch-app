@@ -1,0 +1,18 @@
+---
+import HeaderButton from "./HeaderButton.astro";
+---
+
+<header class="w-full py-8 px-4 flex flex-col items-center">
+	<div class="flex flex-col items-center">
+		<h2 class="font-bold text-3xl">SpaceX Launches</h2>
+		<p class="text-sm text-gray-500 mt-2">
+			All the information about spaceX launches 🚀
+		</p>
+	</div>
+
+	<nav class="flex flex-col md:flex-row text-center mt-6 md:gap-10">
+		<HeaderButton>Todos</HeaderButton>
+		<HeaderButton>Lanzamientos completados</HeaderButton>
+		<HeaderButton>Lanzamientos fallidos</HeaderButton>
+	</nav>
+</header>
