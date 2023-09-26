@@ -5,7 +5,7 @@ import { getLatestLanunches } from "../services/spacex";
 const launches = await getLatestLanunches();
 ---
 
-<div class="items-center justify-center px-16 w-full gap-3 flex flex-wrap">
+<div class="items-center justify-center px-16 w-full gap-6 flex flex-wrap">
 	{
 		launches.map(({ id, links, success, details, flight_number }) => (
 			<CardLaunch

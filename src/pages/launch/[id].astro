@@ -1,0 +1,33 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { type Doc } from "../../types/api";
+import { getLaunchBy } from "../../services/spacex";
+
+export const prerender = false; // server
+const { id } = Astro.params;
+
+let launch;
+
+if (id) {
+	launch = await getLaunchBy({ id });
+}
+---
+
+<Layout title={`Launch #${id}`}>
+	<div class="px-28 mt-20 flex justify-evenly">
+		<div>
+			<img src={launch?.links.patch.small} alt="" />
+		</div>
+		<div class="ml-20">
+			<p class="text-4xl font-semibold">#{launch?.flight_number}</p>
+			<p>{launch?.name}</p>
+			<p class="mt-5 text-gray-500 font-light text-base">{launch?.details}</p>
+			<p class="mt-5 text-gray-500 font-light text-base">
+				{launch?.date_local}
+			</p>
+			<a href="" class="mt-10 text-gray-500 font-light text-base">
+				{launch?.links.article}
+			</a>
+		</div>
+	</div>
+</Layout>
